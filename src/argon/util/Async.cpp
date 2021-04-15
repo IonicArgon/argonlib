@@ -9,6 +9,7 @@ namespace argon {
             async_queue.pop();
             pair.first();
             pros::delay(pair.second);
+            std::cout << "[UTIL] Async func finished: " << pros::millis() << " ms.\n";
         }
     }}{
         std::cout << "[UTIL] Async created: " << pros::millis() << " ms.\n";
@@ -26,5 +27,6 @@ namespace argon {
         auto pair = std::make_pair(func, delay);
         async_queue.push(pair);
         async_task.notify();
+        std::cout << "[UTIL] Async func added: " << pros::millis() << " ms.\n";
     }
 }
