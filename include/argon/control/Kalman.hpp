@@ -10,6 +10,7 @@ namespace argon {
             ~KalmanFilter();
 
             double filter(double p_U);
+            void reset(double p_Q);
 
         private:
             const double m_R; // noise covariance
