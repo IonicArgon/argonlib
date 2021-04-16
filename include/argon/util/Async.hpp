@@ -16,11 +16,11 @@ namespace argon {
             Async();
             ~Async();
 
-            void run(std::function<void()> func, ms delay = 1);
+            void run(std::function<void()> p_func, ms p_delay = 1);
 
         private:
-            std::queue<func_pair> async_queue;
-            pros::Task async_task;
+            std::queue<func_pair> m_async_queue;
+            pros::Task m_async_task;
 
     };
 }

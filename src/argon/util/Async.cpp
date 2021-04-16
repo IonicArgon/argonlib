@@ -3,10 +3,10 @@
 #include "argon/util/Async.hpp"
 
 namespace argon {
-    Async::Async() : async_queue{}, async_task{[this](){
-        while (!pros::competition::is_disabled() && async_task.notify_take(0, TIMEOUT_MAX)) {
-            auto pair = async_queue.front();
-            async_queue.pop();
+    Async::Async() : m_async_queue{}, m_async_task{[this](){
+        while (!pros::competition::is_disabled() && m_async_task.notify_take(0, TIMEOUT_MAX)) {
+            auto pair = m_async_queue.front();
+            m_async_queue.pop();
             pair.first();
             pros::delay(pair.second);
             std::cout << "[UTIL] Async func finished: " << pros::millis() << " ms.\n";
@@ -17,16 +17,16 @@ namespace argon {
 
     Async::~Async() {
         //? remove task from scheduler
-        async_task.remove();
+        m_async_task.remove();
         //? empty the queue
-        std::queue<func_pair>().swap(async_queue);
+        std::queue<func_pair>().swap(m_async_queue);
         std::cout << "[UTIL] Async destroyed: " << pros::millis() << " ms.\n";
     }
 
-    void Async::run(std::function<void()> func, ms delay) {
-        auto pair = std::make_pair(func, delay);
-        async_queue.push(pair);
-        async_task.notify();
+    void Async::run(std::function<void()> p_func, ms p_delay) {
+        auto pair = std::make_pair(p_func, p_delay);
+        m_async_queue.push(pair);
+        m_async_task.notify();
         std::cout << "[UTIL] Async func added: " << pros::millis() << " ms.\n";
     }
 }
