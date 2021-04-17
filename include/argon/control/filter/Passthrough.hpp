@@ -1,5 +1,5 @@
 //* ArgonLib
-//* Passthrough filter utility header
+//* Passthrough filter control header
 #pragma once
 #include "argon/control/filter/AbstractFilter.hpp"
 

@@ -1,5 +1,5 @@
 //* ArgonLib
-//* Kalman filter utility header
+//* Kalman filter control header
 #pragma once
 #include "argon/control/filter/AbstractFilter.hpp"
 

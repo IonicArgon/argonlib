@@ -1,5 +1,5 @@
 //* ArgonLib
-//* AbstractFilter utility source
+//* AbstractFilter control source
 #include "argon/control/filter/AbstractFilter.hpp"
 
 namespace argon {

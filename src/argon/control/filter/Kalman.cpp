@@ -1,5 +1,5 @@
 //* ArgonLib
-//* Kalman filter utility source
+//* Kalman filter control source
 #include "argon/control/filter/Kalman.hpp"
 
 namespace argon {

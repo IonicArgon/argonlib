@@ -1,5 +1,5 @@
 //* ArgonLib
-//* Passthrough filter utility source
+//* Passthrough filter control source
 #include "argon/control/filter/Passthrough.hpp"
 
 namespace argon {

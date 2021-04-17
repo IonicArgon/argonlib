@@ -1,5 +1,5 @@
 //* ArgonLib
-//* AbstractFilter utility header
+//* AbstractFilter control header
 #pragma once
 #include "api.h"
 
