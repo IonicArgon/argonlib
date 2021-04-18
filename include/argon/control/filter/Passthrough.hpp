@@ -9,8 +9,8 @@ namespace argon {
             PassthroughFilter();
             virtual ~PassthroughFilter();
 
-            virtual void reset();
-            virtual double filter(double p_U);
+            void reset(void) override;
+            double filter(double p_U) override;
 
         private:
             double m_U {0.0};

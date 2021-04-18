@@ -9,8 +9,8 @@ namespace argon {
             KalmanFilter(double p_R, double p_def_Q);
             virtual ~KalmanFilter();
 
-            virtual void reset();
-            virtual double filter(double p_U);
+            void reset(void) override;
+            double filter(double p_U) override;
             KalmanFilter& set_Q(double p_Q);
 
         private:

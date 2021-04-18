@@ -9,7 +9,7 @@ namespace argon {
             AbstractFilter();
             virtual ~AbstractFilter();
 
-            virtual void reset() = 0;
+            virtual void reset(void) = 0;
             virtual double filter(double p_U) = 0;
     };
 }
