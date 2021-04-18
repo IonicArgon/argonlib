@@ -6,7 +6,7 @@
 namespace argon {
     class KalmanFilter : public AbstractFilter {
         public:
-            KalmanFilter(double p_R, double p_def_Q);
+            explicit KalmanFilter(double p_R, double p_def_Q);
             virtual ~KalmanFilter();
 
             void reset(void) override;
