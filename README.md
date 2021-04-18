@@ -3,5 +3,5 @@
 [![License](https://img.shields.io/github/license/IonicArgon/argon-lib)](LICENSE)
 
 PROS template that maybe i can reuse  
-trash... unless? :flushed:
+trash... unless? :flushed:  
 ![funny](death.gif)  
