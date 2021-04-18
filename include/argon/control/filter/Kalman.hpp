@@ -1,10 +1,10 @@
 //* ArgonLib
 //* Kalman filter control header
 #pragma once
-#include "argon/control/filter/AbstractFilter.hpp"
+#include "argon/control/filter/Filter.hpp"
 
 namespace argon {
-    class KalmanFilter : public AbstractFilter {
+    class KalmanFilter : public Filter {
         public:
             explicit KalmanFilter(double p_R, double p_def_Q);
             virtual ~KalmanFilter();

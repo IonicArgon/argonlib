@@ -5,7 +5,7 @@
 #include <memory>
 
 #include "api.h"
-#include "argon/control/filter/Passthrough.hpp"
+#include "argon/control/filter/Filter.hpp"
 #include "argon/util/Timer.hpp"
 
 namespace argon {
@@ -16,12 +16,10 @@ namespace argon {
         double m_kBias;
     };
 
-    using filter_ptr = std::unique_ptr<AbstractFilter>;
-
     class PID {
         public:
             explicit PID(PIDGains p_gains);
-            explicit PID(PIDGains p_gains, filter_ptr p_filter);
+            explicit PID(PIDGains p_gains, Filter p_filter);
             ~PID();
 
             double calculate(double p_current);
@@ -31,11 +29,11 @@ namespace argon {
             PID& set_integral_limits(double p_int_min, double p_int_max);
             PID& set_integral_reset(bool p_reset);
             PID& set_max_error_to_integrate(double p_max_error);
-            PID& set_derivative_filter(filter_ptr p_filter);
+            PID& set_derivative_filter(Filter p_filter);
 
         private:
             PIDGains m_gains;
-            filter_ptr m_filter{ std::make_unique<PassthroughFilter>() };
+            Filter m_filter{};
             Timer m_timer{};
 
             double m_target{0.0};

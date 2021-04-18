@@ -7,8 +7,8 @@ namespace argon {
         std::cout << "[CTRL] PID created: " << pros::millis() << " ms.\n";
     }
 
-    PID::PID(PIDGains p_gains, filter_ptr p_filter) : m_gains{p_gains} {
-        m_filter.swap(p_filter);
+    PID::PID(PIDGains p_gains, Filter p_filter) : m_gains{p_gains} {
+        set_derivative_filter(p_filter);
         std::cout << "[CTRL] PID created: " << pros::millis() << " ms.\n";
     }
 
@@ -23,7 +23,7 @@ namespace argon {
         double dT = m_timer.get_Dt_last();
 
         m_derivative = (dT) ? m_derivative / dT : 0.0;
-        m_derivative = m_filter->filter(m_derivative);
+        m_derivative = m_filter.filter(m_derivative);
 
         if (m_max_error_to_integrate == 0xFFFFFFFF || std::fabs(m_error) <= m_max_error_to_integrate)
             m_integral += m_error * dT * m_gains.m_kI;
@@ -71,8 +71,8 @@ namespace argon {
         return *this;
     }
 
-    PID& PID::set_derivative_filter(filter_ptr p_filter) {
-        m_filter.swap(p_filter);
+    PID& PID::set_derivative_filter(Filter p_filter) {
+        m_filter = p_filter;
         return *this;
     }
 }

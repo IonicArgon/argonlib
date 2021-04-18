@@ -21,4 +21,9 @@ namespace argon {
         m_last_output = m_output;
         return m_output;
     }
+
+    EMAFilter& EMAFilter::set_alpha(double p_alpha) {
+        m_alpha = p_alpha;
+        return *this;
+    }
 }

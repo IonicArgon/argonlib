@@ -2,9 +2,10 @@
 #pragma once
 
 //* Control
+#include "argon/control/PID.hpp"
 // filter
+#include "argon/control/filter/EMA.hpp"
 #include "argon/control/filter/Kalman.hpp"
-#include "argon/control/filter/Passthrough.hpp"
 
 //* Misc
 #include "argon/misc/Units.hpp"
